@@ -1,23 +1,17 @@
-# Laravel cache (IMPORTANT)
+# Laravel cache
 bootstrap/cache/*
 !bootstrap/cache/.gitignore
 
-# Laravel storage framework
 storage/framework/*
 !storage/framework/cache/
 !storage/framework/sessions/
 !storage/framework/views/
+!storage/framework/.gitignore
 
-# Keep .gitignore inside folders
-!storage/framework/cache/.gitignore
-!storage/framework/sessions/.gitignore
-!storage/framework/views/.gitignore
-
-# Logs (optional: keep ignored)
 storage/logs/*
 
-# Node (if any)
+# Node
 node_modules/
 
-# Env file (never push secrets)
+# Env
 .env
