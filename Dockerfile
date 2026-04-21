@@ -13,15 +13,13 @@ WORKDIR /app
 COPY . .
 
 # 🔥 FIX: create ALL required Laravel directories
-RUN mkdir -p \
+RUN mkdir -p storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
-    storage/framework/cache \
     storage/logs \
     bootstrap/cache
 
-# 🔥 FIX: give permissions
-RUN chmod -R 777 storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache# 🔥 FIX: give permissions
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
