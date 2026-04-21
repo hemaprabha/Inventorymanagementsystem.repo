@@ -18,10 +18,6 @@ RUN chmod -R 777 storage bootstrap/cache
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Clear caches
-RUN php artisan config:clear
-RUN php artisan cache:clear
-RUN php artisan view:clear
-
-EXPOSE 10000
-
-CMD php artisan serve --host=0.0.0.0 --port=10000
+RUN composer install --no-dev --optimize-autoloader \
+    && php artisan config:clear \
+    && php artisan cache:clearCMD php artisan serve --host=0.0.0.0 --port=10000
