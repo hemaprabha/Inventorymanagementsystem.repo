@@ -1,11 +1,12 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\DashboardController;
-Route::get('/migrate-now', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return 'Migrated';
+use App\Models\User;
+
+Route::get('/users', function () {
+    return response()->json(User::all());
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
