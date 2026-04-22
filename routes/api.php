@@ -3,7 +3,10 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\DashboardController;
-
+Route::get('/migrate-now', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migrated';
+});
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/products', [ProductController::class, 'store']);
