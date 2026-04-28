@@ -3,10 +3,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\DashboardController;
-use App\Models\User;
+use App\Http\Controllers\OrderController;
 
-Route::get('/users', function () {
-    return response()->json(User::all());
+
+Route::get('/test', function () {
+    return "API working";
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -16,3 +17,5 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::put('/products/{id}', [ProductController::class, 'update']); 
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::post('/order', [OrderController::class, 'store']);
+Route::get('/orders/{user_id}', [OrderController::class, 'getByUser']);
